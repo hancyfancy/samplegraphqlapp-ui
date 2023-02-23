@@ -2,6 +2,8 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
+import { BookAndCollegeDetails } from 'src/app/models/BookAndCollegeDetails';
+import { BookAndCollegeQuery } from 'src/app/models/BookAndCollegeQuery';
 
 @Injectable({
   providedIn: 'root'

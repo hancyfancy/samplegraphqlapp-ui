@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { lastValueFrom } from 'rxjs';
 import { StudentService } from 'src/services/student/student.service';
+import { BookAndCollegeDetails } from '../models/BookAndCollegeDetails';
 
 @Component({
   selector: 'app-student',
