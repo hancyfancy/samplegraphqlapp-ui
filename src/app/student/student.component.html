@@ -1,5 +1,19 @@
 <h2>Student Information</h2>
 
+<div>
+    <label>Student first name</label>
+    <input type="text" #studentFirstName />
+</div>
+
+<div>
+    <label>Student id</label>
+    <input type="text" #studentId />
+</div>
+
+<div>
+    <input type="button" (click)="getBookAndCollegeDetails(studentFirstName.value, studentId.value)" value="Submit" />
+</div>
+
 <code>
     {{bookAndCollegeDetails | json}}
 </code>

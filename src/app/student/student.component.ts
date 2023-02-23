@@ -14,12 +14,13 @@ export class StudentComponent implements OnInit {
   constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
-    this.getBookAndCollegeDetails("Kiran", "S1001").then((res) => {this.bookAndCollegeDetails = res});
+
   }
 
   getBookAndCollegeDetails(studentFirstName: string, studentId: string): Promise<void | BookAndCollegeDetails> {
     return lastValueFrom(this.studentService.bookAndCollegeDetails({ studentFirstName, studentId }))
       .then((details) => {
+        this.bookAndCollegeDetails = details;
         return details;
       })
       .catch((error) => {
