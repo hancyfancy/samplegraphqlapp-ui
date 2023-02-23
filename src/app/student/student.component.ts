@@ -9,15 +9,16 @@ import { BookAndCollegeDetails } from '../models/BookAndCollegeDetails';
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent implements OnInit {
+  protected bookAndCollegeDetails: BookAndCollegeDetails | void | undefined = undefined;
 
   constructor(private studentService: StudentService) { }
 
   ngOnInit(): void {
-    console.log(this.getBookAndCollegeDetails("Kiran", "S1001"));
+    this.getBookAndCollegeDetails("Kiran", "S1001").then((res) => {this.bookAndCollegeDetails = res});
   }
 
-  async getBookAndCollegeDetails(studentFirstName: string, studentId: string): Promise<void | BookAndCollegeDetails> {
-    return await lastValueFrom(this.studentService.bookAndCollegeDetails({ studentFirstName, studentId }))
+  getBookAndCollegeDetails(studentFirstName: string, studentId: string): Promise<void | BookAndCollegeDetails> {
+    return lastValueFrom(this.studentService.bookAndCollegeDetails({ studentFirstName, studentId }))
       .then((details) => {
         return details;
       })
